@@ -3,71 +3,471 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Yash Gandhi</title>
-  <meta name="description" content="Yash Gandhi — Portfolio (coming soon)." />
+  <title>Yash Pragnesh Gandhi | Research Programmer / SDE</title>
+  <meta name="description" content="Yash Pragnesh Gandhi — Research Programmer / AI engineer. Generative AI, forecasting, diffusion models, MLOps, web systems. Publications + projects + demos." />
+  <meta name="color-scheme" content="light dark" />
 
   <style>
-    body {
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      max-width: 720px;
-      margin: 48px auto;
-      padding: 0 16px;
-      line-height: 1.5;
+    :root{
+      --bg: #0b0f17;
+      --card: rgba(255,255,255,0.06);
+      --card2: rgba(255,255,255,0.08);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.70);
+      --subtle: rgba(255,255,255,0.10);
+      --border: rgba(255,255,255,0.12);
+      --shadow: 0 20px 60px rgba(0,0,0,0.35);
+      --accent: #7c5cff;
+      --accent2: #22c55e;
+      --warn: #f59e0b;
+      --max: 1100px;
+      --radius: 18px;
     }
-    a { text-decoration: none; }
-    a:hover { text-decoration: underline; }
 
-    table, th, td {
-      border: 5px solid black;
-      border-collapse: collapse;
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg: #f6f7fb;
+        --card: rgba(0,0,0,0.04);
+        --card2: rgba(0,0,0,0.06);
+        --text: rgba(0,0,0,0.90);
+        --muted: rgba(0,0,0,0.65);
+        --subtle: rgba(0,0,0,0.08);
+        --border: rgba(0,0,0,0.10);
+        --shadow: 0 18px 50px rgba(0,0,0,0.12);
+      }
     }
-    th, td {
-      padding: 10px;
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--text);
+      background:
+        radial-gradient(1200px 600px at 15% 10%, rgba(124,92,255,0.28), transparent 60%),
+        radial-gradient(900px 500px at 85% 20%, rgba(34,197,94,0.18), transparent 55%),
+        radial-gradient(900px 700px at 50% 85%, rgba(245,158,11,0.12), transparent 60%),
+        var(--bg);
+      line-height: 1.55;
     }
+
+    a{ color: inherit; text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 22px 18px 80px; }
+
+    /* Top nav */
+    .nav{
+      position: sticky; top: 10px; z-index: 20;
+      backdrop-filter: blur(10px);
+      background: color-mix(in srgb, var(--card) 85%, transparent);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      box-shadow: var(--shadow);
+      padding: 10px 14px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap: 10px;
+    }
+    .brand{ display:flex; align-items:center; gap:10px; padding: 0 6px; }
+    .dot{
+      width: 10px; height: 10px; border-radius: 99px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 6px rgba(124,92,255,0.12);
+    }
+    .brand b{ letter-spacing: 0.2px; }
+    .navlinks{ display:flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+    .navlinks a{
+      font-size: 14px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      color: var(--muted);
+    }
+    .navlinks a:hover{
+      background: var(--card2);
+      border-color: var(--border);
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    /* Hero */
+    .hero{ margin-top: 18px; padding: 28px; border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, color-mix(in srgb, var(--card2) 95%, transparent), color-mix(in srgb, var(--card) 75%, transparent));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position: relative;
+    }
+    .hero:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(700px 260px at 20% 0%, rgba(124,92,255,0.25), transparent 60%),
+                  radial-gradient(600px 280px at 95% 20%, rgba(34,197,94,0.16), transparent 60%);
+      pointer-events:none;
+      opacity:0.9;
+    }
+    .hero > *{ position: relative; }
+    .kicker{ display:inline-flex; align-items:center; gap:8px; font-size: 13px; color: var(--muted);
+      border: 1px solid var(--border); padding: 6px 10px; border-radius: 999px; background: var(--card);
+    }
+    .kbadge{
+      font-size: 12px; padding: 2px 8px; border-radius: 999px;
+      background: rgba(124,92,255,0.18); border: 1px solid rgba(124,92,255,0.28);
+      color: var(--text);
+    }
+    h1{ margin: 14px 0 8px; font-size: clamp(28px, 4vw, 42px); line-height: 1.15; }
+    .subtitle{ margin: 0; color: var(--muted); font-size: 16px; max-width: 70ch; }
+    .cta{ margin-top: 16px; display:flex; gap: 10px; flex-wrap: wrap; }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap: 8px;
+      padding: 10px 14px; border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      font-size: 14px;
+    }
+    .btn:hover{ background: var(--card2); text-decoration: none; }
+    .btn.primary{
+      border-color: rgba(124,92,255,0.35);
+      background: linear-gradient(90deg, rgba(124,92,255,0.24), rgba(34,197,94,0.14));
+    }
+    .btn.small{ padding: 8px 12px; font-size: 13px; }
+
+    .grid{ margin-top: 18px; display:grid; grid-template-columns: 1.2fr 0.8fr; gap: 14px; }
+    @media (max-width: 900px){ .grid{ grid-template-columns: 1fr; } }
+
+    .card{
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+    .card h2{ margin: 0 0 10px; font-size: 18px; }
+    .pillrow{ display:flex; flex-wrap: wrap; gap: 8px; }
+    .pill{
+      font-size: 12.5px; color: var(--muted);
+      padding: 6px 10px; border-radius: 999px;
+      border: 1px solid var(--border);
+      background: color-mix(in srgb, var(--card2) 80%, transparent);
+      white-space: nowrap;
+    }
+    .muted{ color: var(--muted); }
+
+    /* Sections */
+    section{ margin-top: 18px; }
+    .sectionHead{
+      display:flex; align-items: baseline; justify-content: space-between; gap: 12px;
+      padding: 0 4px;
+    }
+    .sectionHead h2{ margin: 0; font-size: 20px; }
+    .sectionHead p{ margin: 0; color: var(--muted); font-size: 14px; }
+
+    /* Lists */
+    .stack{ display:grid; gap: 12px; }
+    .item{
+      border: 1px solid var(--border);
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+    .itemTop{ display:flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+    .itemTop b{ font-size: 15px; }
+    .meta{ color: var(--muted); font-size: 13px; }
+    .bullets{ margin: 10px 0 0 18px; color: var(--muted); }
+    .bullets li{ margin: 6px 0; }
+
+    /* Projects */
+    .projGrid{ display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    @media (max-width: 900px){ .projGrid{ grid-template-columns: 1fr; } }
+    .projCard{ padding: 16px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--card); }
+    .projCard h3{ margin: 0 0 6px; font-size: 16px; }
+    .projCard p{ margin: 0 0 10px; color: var(--muted); }
+    .projLinks{ display:flex; gap: 10px; flex-wrap: wrap; }
+
+    /* Publications */
+    .pub a{ text-decoration: underline; }
+    .pub a:hover{ opacity: 0.9; }
+
+    /* Footer */
+    footer{ margin-top: 22px; padding-top: 16px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
+
+    /* Tiny helpers */
+    .nowrap{ white-space: nowrap; }
   </style>
 </head>
 
 <body>
-  <h1 style="margin-bottom: 8px;">Yash Gandhi</h1>
-  <p style="margin-top: 0; color: #444;">
-    Portfolio coming soon. In the meantime:
-  </p>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">
+        <span class="dot" aria-hidden="true"></span>
+        <b>Yash Gandhi</b>
+      </div>
+      <div class="navlinks">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
 
-  <ul>
-    <li><a href="https://github.com/yash4gandhi" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-    <!-- Replace these two with your real links -->
-    <li><a href="https://www.linkedin.com/in/yash4gandhi/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-    <li><a href="mailto:YOUR_EMAIL">yash4gandhi@gmail.com</a></li>
-  </ul>
+    <div class="hero" id="top">
+      <div class="kicker">
+        <span class="kbadge">Research Programmer / SDE</span>
+        <span class="nowrap">Santa Clara, CA</span>
+      </div>
 
-  <h2>Featured Project</h2>
-  <p><strong>StockTrading</strong> — stock info, news, charts, watchlist, and trading UI.</p>
+      <h1>Building AI systems that ship — from research to production.</h1>
+      <p class="subtitle">
+        I work on generative AI + long-sequence forecasting, scientific ML, and scalable backend systems.
+        Recent work includes oil production forecasting, methane emission forecasting, diffusion models for peptide generation,
+        and real-time microscopy denoising pipelines.
+      </p>
 
-  <table style="width:60%; margin: 16px auto;">
-    <tr>
-      <td>
-        <h3 style="margin: 0;">Stock tracking using Flask, AJAX, python</h3>
-        <br />
-        <a href="https://youtu.be/oQRW5Dpfwks" target="_blank" rel="noopener noreferrer">Video Link</a>
-        <br />
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <h3 style="margin: 0;">Stock Portfolio Web Application using Angular</h3>
-        <br />
-        <a href="https://youtu.be/y-gy7XYQpDQ" target="_blank" rel="noopener noreferrer">Video Link</a>
-        <br />
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <h3 style="margin: 0;">Stock Portfolio Mobile Application using Android Studio</h3>
-        <br />
-        <a href="https://youtu.be/24KB_DL01Nw" target="_blank" rel="noopener noreferrer">Video Link</a>
-        <br />
-      </td>
-    </tr>
-  </table>
+      <div class="cta">
+        <!-- TODO: replace the LinkedIn URL -->
+        <a class="btn primary" href="https://www.linkedin.com/in/YOUR-LINKEDIN/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a class="btn" href="https://github.com/yash4gandhi" target="_blank" rel="noopener noreferrer">GitHub</a>
+
+        <!-- OPTIONAL: upload your resume PDF to /assets/Yash_Gandhi_Resume.pdf and update this -->
+        <a class="btn" href="assets/Yash_Gandhi_Resume.pdf" target="_blank" rel="noopener noreferrer">Resume (PDF)</a>
+
+        <button class="btn" type="button" id="copyEmailBtn" aria-label="Copy email">Copy Email</button>
+
+        <!-- OPTIONAL: add Google Scholar if you have it -->
+        <!-- <a class="btn" href="https://scholar.google.com/citations?user=XXXX" target="_blank" rel="noopener noreferrer">Google Scholar</a> -->
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card" id="about">
+        <h2>About</h2>
+        <p class="muted" style="margin:0;">
+          MS in Computer Science (USC). I enjoy building end-to-end systems: modeling + evaluation + deployment + UI.
+          I’m especially interested in long-context time-series, generative modeling (diffusion), and scientific ML.
+        </p>
+
+        <div style="height:12px;"></div>
+        <div class="pillrow">
+          <span class="pill">Generative AI (Diffusion, Transformers)</span>
+          <span class="pill">Long-sequence Forecasting</span>
+          <span class="pill">Scientific ML / Operators</span>
+          <span class="pill">MLOps on AWS</span>
+          <span class="pill">APIs (gRPC / REST)</span>
+          <span class="pill">Web Apps (React / Django / Flask)</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Highlights</h2>
+        <ul class="bullets" style="margin-top:0;">
+          <li>Improved oil production forecasting accuracy from 30% → 78% using generative AI models.</li>
+          <li>Built an AWS-based real-time microscopy denoising pipeline + web interface (reduced workflow overhead by ~40%).</li>
+          <li>Implemented Redis caching PoC to reduce API latency by ~40–60% on a configuration management system.</li>
+        </ul>
+      </div>
+    </div>
+
+    <section id="experience">
+      <div class="sectionHead">
+        <h2>Experience</h2>
+        <p>Research + production engineering</p>
+      </div>
+
+      <div class="stack" style="margin-top:12px;">
+        <div class="item">
+          <div class="itemTop">
+            <b>Research Programmer — University of Southern California</b>
+            <span class="meta">Jun 2023 – Present</span>
+          </div>
+          <div class="meta">Generative AI • Long-sequence forecasting • Scientific ML • AWS pipelines</div>
+          <ul class="bullets">
+            <li>Improved oil production forecasting accuracy from 30% to 78% using models like Informer + continuous-time Liquid Neural Networks on long-sequence multi-well data.</li>
+            <li>Enhanced CFD-based methane emission forecasting by integrating Fourier Neural Operators with experimental field data (ECET collaboration).</li>
+            <li>Applied diffusion models to generate protein peptide sequences for cancer research; achieved 88% accuracy in experimental validation.</li>
+            <li>Improved microscopy denoising SNR by ~36% using R2R + DnCNN; built an AWS real-time denoising pipeline with a web interface.</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <div class="itemTop">
+            <b>Software Engineer Intern — Alation</b>
+            <span class="meta">May 2022 – Aug 2022</span>
+          </div>
+          <div class="meta">Django-gRPC • PostgreSQL (AWS RDS) • Redis • Datadog</div>
+          <ul class="bullets">
+            <li>Engineered a Configuration Management System (CMS) to support migration to a multi-tenant cloud architecture.</li>
+            <li>Built scalable CRUD APIs using Django-gRPC backed by AWS RDS PostgreSQL.</li>
+            <li>Designed a Redis caching PoC reducing API latency by ~40–60%; integrated encryption microservice + Datadog monitoring.</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <div class="itemTop">
+            <b>Software Developer Intern — Empays Payment Systems</b>
+            <span class="meta">Mar 2020 – Aug 2020</span>
+          </div>
+          <div class="meta">Dialogflow • Flask • NLP / NLU</div>
+          <ul class="bullets">
+            <li>Built a conversational banking chatbot (Dialogflow) to retrieve transaction history, card details, and account summaries with user filters.</li>
+            <li>Integrated Dialogflow with Flask APIs for secure data access + multi-turn context; improved engagement by ~27% with training + fallbacks.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="sectionHead">
+        <h2>Projects</h2>
+        <p>Selected work + demos</p>
+      </div>
+
+      <div class="projGrid" style="margin-top:12px;">
+        <div class="projCard">
+          <h3>StockTrading — demos</h3>
+          <p>Three implementations (Flask/AJAX, Angular web app, Android mobile app).</p>
+          <div class="projLinks">
+            <a class="btn small" href="https://youtu.be/oQRW5Dpfwks" target="_blank" rel="noopener noreferrer">Flask/AJAX Demo</a>
+            <a class="btn small" href="https://youtu.be/y-gy7XYQpDQ" target="_blank" rel="noopener noreferrer">Angular Demo</a>
+            <a class="btn small" href="https://youtu.be/24KB_DL01Nw" target="_blank" rel="noopener noreferrer">Android Demo</a>
+          </div>
+        </div>
+
+        <div class="projCard">
+          <h3>Multi-Agent AI System for Peptide Sequence Generation</h3>
+          <p>Prompt-driven multi-agent workflow using LangGraph/LangChain/PydanticAI; integrates DDIM generative inference + continuous-time nets for free-energy prediction.</p>
+          <div class="pillrow">
+            <span class="pill">LangGraph</span><span class="pill">LangChain</span><span class="pill">PydanticAI</span><span class="pill">DDIM</span>
+          </div>
+          <!-- TODO: add repo link if public -->
+          <!-- <div class="projLinks" style="margin-top:10px;"><a class="btn small" href="#" target="_blank" rel="noopener noreferrer">Code</a></div> -->
+        </div>
+
+        <div class="projCard">
+          <h3>WhatsApp Fake News Detection</h3>
+          <p>Semantic search approach using BERT transfer learning; achieved 78.09% accuracy using cosine similarity vs reliable sources.</p>
+          <div class="pillrow">
+            <span class="pill">BERT</span><span class="pill">Semantic Search</span><span class="pill">NLP</span>
+          </div>
+        </div>
+
+        <div class="projCard">
+          <h3>Virtual Assistant for English Speaking Skills</h3>
+          <p>Conversational chatbot using NLP + transfer learning; SynQG question generation + RoBERTa grammar correction for personalized feedback.</p>
+          <div class="pillrow">
+            <span class="pill">RoBERTa</span><span class="pill">NLP</span><span class="pill">Chatbot</span>
+          </div>
+        </div>
+
+        <div class="projCard">
+          <h3>Virtual Tourist Guide (Smart India Hackathon)</h3>
+          <p>CNN image classifier (92% accuracy) to identify landmarks; Android app with route navigation + recommendations.</p>
+          <div class="pillrow">
+            <span class="pill">CNN</span><span class="pill">Android</span><span class="pill">Computer Vision</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="sectionHead">
+        <h2>Publications</h2>
+        <p>Peer-reviewed + proceedings + preprints</p>
+      </div>
+
+      <div class="stack" style="margin-top:12px;">
+        <div class="item pub">
+          <b>ChemBioChem (2025)</b>
+          <div class="muted">A Route to Design Novel Functional Peptides by Applying a Denoising Diffusional Model to mRNA Display Libraries</div>
+          <div class="meta"><a href="https://doi.org/10.1002/cbic.202500302" target="_blank" rel="noopener noreferrer">doi:10.1002/cbic.202500302</a></div>
+        </div>
+
+        <div class="item pub">
+          <b>WRM 2025 (Proceedings)</b>
+          <div class="muted">AI-Driven CFD Simulations and Real-Time Methane Leak Monitoring in Idle Wells</div>
+          <div class="meta"><a href="https://onepetro.org/SPEWRM/proceedings-abstract/25WRM/25WRM/656780" target="_blank" rel="noopener noreferrer">OnePetro link</a></div>
+        </div>
+
+        <div class="item pub">
+          <b>arXiv (2024)</b>
+          <div class="muted">Generative AI-driven forecasting of oil production</div>
+          <div class="meta"><a href="https://arxiv.org/abs/2409.16482" target="_blank" rel="noopener noreferrer">arXiv:2409.16482</a></div>
+        </div>
+
+        <div class="item pub">
+          <b>ICICCS (2020)</b>
+          <div class="muted">Unsupervised WhatsApp Fake News Detection using Semantic Search</div>
+          <div class="meta"><a href="https://doi.org/10.1109/ICICCS48265.2020.9120902" target="_blank" rel="noopener noreferrer">doi:10.1109/ICICCS48265.2020.9120902</a></div>
+        </div>
+
+        <div class="item pub">
+          <b>ICIRCA (2021)</b>
+          <div class="muted">Virtual Assistant for Enhancing English Speaking Skills</div>
+          <div class="meta"><a href="https://doi.org/10.1109/ICIRCA51532.2021.9544877" target="_blank" rel="noopener noreferrer">doi:10.1109/ICIRCA51532.2021.9544877</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="sectionHead">
+        <h2>Skills</h2>
+        <p>Tools I use often</p>
+      </div>
+
+      <div class="card" style="margin-top:12px;">
+        <div class="pillrow">
+          <span class="pill">Python</span><span class="pill">Java</span><span class="pill">JavaScript</span><span class="pill">C/C++</span>
+          <span class="pill">PyTorch</span><span class="pill">TensorFlow</span><span class="pill">Transformers</span>
+          <span class="pill">LangGraph</span><span class="pill">LangChain</span><span class="pill">FAISS</span><span class="pill">RAG</span>
+          <span class="pill">Docker</span><span class="pill">Kubernetes</span><span class="pill">AWS (S3/Lambda/RDS/SageMaker)</span>
+          <span class="pill">Django</span><span class="pill">Flask</span><span class="pill">React</span><span class="pill">Node.js</span>
+          <span class="pill">PostgreSQL</span><span class="pill">Redis</span><span class="pill">MongoDB</span>
+          <span class="pill">gRPC</span><span class="pill">Datadog</span><span class="pill">Kafka</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="sectionHead">
+        <h2>Contact</h2>
+        <p>Fastest way to reach me</p>
+      </div>
+
+      <div class="card" style="margin-top:12px;">
+        <p class="muted" style="margin:0 0 12px;">
+          Email me and I’ll respond quickly. I’m open to research engineering / SDE roles in ML/AI + systems.
+        </p>
+        <div class="cta" style="margin-top:0;">
+          <a class="btn primary" href="mailto:yashprag@usc.edu">yashprag@usc.edu</a>
+          <a class="btn" href="https://www.linkedin.com/in/YOUR-LINKEDIN/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="btn" href="https://github.com/yash4gandhi" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Yash Gandhi • Built with GitHub Pages
+    </footer>
+  </div>
+
+  <script>
+    // Update year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Copy email
+    const email = "yashprag@usc.edu";
+    const btn = document.getElementById("copyEmailBtn");
+    btn.addEventListener("click", async () => {
+      try{
+        await navigator.clipboard.writeText(email);
+        const old = btn.textContent;
+        btn.textContent = "Copied!";
+        setTimeout(()=> btn.textContent = old, 900);
+      }catch(e){
+        window.location.href = "mailto:" + email;
+      }
+    });
+  </script>
 </body>
 </html>
