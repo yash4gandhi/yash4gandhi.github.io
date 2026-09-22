@@ -55,7 +55,7 @@ For future updates, create a feature branch, edit and test, commit and push,
 then open a pull request into `main`. Review its `Build and test` check before
 merging. Merging publishes the update automatically. Repository branch rules
 can require this check before merging; those rules are configured separately
-in GitHub settings. Analytics is not installed yet.
+in GitHub settings. See docs/ANALYTICS.md for the optional analytics setup.
 
 ## Demonstration limitations
 

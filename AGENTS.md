@@ -21,3 +21,7 @@
   deploys after the build and tests pass. PR checks do not deploy.
 - The builder produces the homepage and all routes under dist/. Only dist/
   is deployed. The legacy stock page and its redirect are intentionally removed.
+
+- Analytics must stay opt-in, production-domain-only and free of visitor input text.
+  Read docs/ANALYTICS.md before changing tracking. Do not emit live analytics
+  events from local tests or weaken consent gates for debugging.
