@@ -34,3 +34,15 @@
 
 
 
+
+/* Optional analytics controls share the site's typography and theme. */
+.analytics-footer{grid-column:1/-1;display:flex;align-items:center;flex-wrap:wrap;gap:12px 24px;font-size:12px}
+.analytics-settings{padding:8px 0;border:0;text-decoration:underline;text-underline-offset:4px;font-size:12px}
+.analytics-consent{position:fixed;z-index:20;inset:auto 16px 16px;max-width:1060px;max-height:calc(100dvh - 32px);overflow:auto;margin-inline:auto;padding:22px 26px;background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:4px;box-shadow:0 8px 36px #0002;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center}
+.analytics-consent h2{font-family:inherit;font-size:21px;letter-spacing:-.02em;margin-bottom:8px}
+.analytics-consent p{font-size:13px;line-height:1.6;margin:0;max-width:620px}
+.analytics-consent [data-analytics-status]{margin-top:6px;font-size:11px;color:var(--muted)}
+.analytics-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.analytics-actions button{font-size:12px;padding:10px 12px}
+.privacy-copy{padding-top:0}.privacy-copy h2{margin-top:32px}
+@media(max-width:760px){.analytics-consent{grid-template-columns:1fr;gap:14px;padding:18px;inset:auto 12px 12px}.analytics-consent h2{font-size:19px}.analytics-actions{gap:6px}.analytics-actions button{padding-inline:10px}}
