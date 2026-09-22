@@ -1,0 +1,122 @@
+[
+  {
+    "id": "DDIM-HTSK1",
+    "sequence": "MIDTNVILNYKKAADHFSIFM",
+    "experimentalKdM": 4.52e-12,
+    "experimentalDeltaG": -15.5,
+    "predictedKdM": 7.8e-12,
+    "predictedDeltaG": -15.1
+  },
+  {
+    "id": "DDIM-HTSK2",
+    "sequence": "MISWITILNYKKAADHMNMTL",
+    "experimentalKdM": 5.01e-12,
+    "experimentalDeltaG": -15.4,
+    "predictedKdM": 1.9e-12,
+    "predictedDeltaG": -16.0
+  },
+  {
+    "id": "DDIM-HTSK3",
+    "sequence": "MIDRTAVYNYKKAADHFWGRM",
+    "experimentalKdM": 2.15e-11,
+    "experimentalDeltaG": -14.5,
+    "predictedKdM": 1.5e-11,
+    "predictedDeltaG": -14.8
+  },
+  {
+    "id": "DDIM-HTSK4",
+    "sequence": "MIETITIYNYKNAADHFSTSK",
+    "experimentalKdM": 7e-10,
+    "experimentalDeltaG": -12.5,
+    "predictedKdM": 7.2e-11,
+    "predictedDeltaG": -13.8
+  },
+  {
+    "id": "FG1",
+    "sequence": "MIPTIIIYNYKKAADHFSMSM",
+    "experimentalKdM": 3.9e-12,
+    "experimentalDeltaG": -15.6,
+    "predictedKdM": 8.4e-12,
+    "predictedDeltaG": -15.1
+  },
+  {
+    "id": "FG2",
+    "sequence": "MIKAITIQNYKKAADHFNMTM",
+    "experimentalKdM": 4.5e-12,
+    "experimentalDeltaG": -15.5,
+    "predictedKdM": 4e-12,
+    "predictedDeltaG": -15.5
+  },
+  {
+    "id": "FG3",
+    "sequence": "MLRAITIYNYKKAADHFAKTM",
+    "experimentalKdM": 9.4e-12,
+    "experimentalDeltaG": -15.0,
+    "predictedKdM": 1.6e-11,
+    "predictedDeltaG": -14.7
+  },
+  {
+    "id": "FG4",
+    "sequence": "MIQSLTIMNYKRAADNFSIYH",
+    "experimentalKdM": 1.24e-10,
+    "experimentalDeltaG": -13.5,
+    "predictedKdM": 1.2e-11,
+    "predictedDeltaG": -14.9
+  },
+  {
+    "id": "FG6",
+    "sequence": "MISASTIYKYKMAADHFSISM",
+    "experimentalKdM": 1.23e-11,
+    "experimentalDeltaG": -14.9,
+    "predictedKdM": 1.5e-11,
+    "predictedDeltaG": -14.8
+  },
+  {
+    "id": "FG7",
+    "sequence": "MIETITLYNYKKAADHFSKSM",
+    "experimentalKdM": 1.49e-11,
+    "experimentalDeltaG": -14.8,
+    "predictedKdM": 1.4e-11,
+    "predictedDeltaG": -14.8
+  },
+  {
+    "id": "FG8",
+    "sequence": "MIDAHTIFEYKKAADHFSMSL",
+    "experimentalKdM": 1.41e-11,
+    "experimentalDeltaG": -14.8,
+    "predictedKdM": 1e-11,
+    "predictedDeltaG": -15.0
+  },
+  {
+    "id": "FG9",
+    "sequence": "MIANITIENYKKAADHFSIWM",
+    "experimentalKdM": 1.73e-11,
+    "experimentalDeltaG": -14.7,
+    "predictedKdM": 1.1e-11,
+    "predictedDeltaG": -14.9
+  },
+  {
+    "id": "FG10",
+    "sequence": "MIELITIYRYKKAADHFSLSM",
+    "experimentalKdM": 1.49e-11,
+    "experimentalDeltaG": -14.8,
+    "predictedKdM": 1.1e-11,
+    "predictedDeltaG": -14.9
+  },
+  {
+    "id": "FG11",
+    "sequence": "MINHITIYLYKKAADHFSVSM",
+    "experimentalKdM": 2.96e-11,
+    "experimentalDeltaG": -14.4,
+    "predictedKdM": 1.7e-11,
+    "predictedDeltaG": -14.7
+  },
+  {
+    "id": "FG12",
+    "sequence": "MIPAIAIINYKKAADHFLLAM",
+    "experimentalKdM": 1.32e-11,
+    "experimentalDeltaG": -14.8,
+    "predictedKdM": 6.9e-12,
+    "predictedDeltaG": -15.2
+  }
+]

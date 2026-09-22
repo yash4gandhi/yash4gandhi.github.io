@@ -1,0 +1,7 @@
+{
+  "name": "yash-gandhi-portfolio",
+  "private": true,
+  "type": "module",
+  "scripts": {"build": "node scripts/build.mjs", "dev": "node scripts/build.mjs && node scripts/serve.mjs", "preview": "node scripts/serve.mjs", "test": "node --test tests/*.test.mjs"},
+  "engines": {"node": ">=22"}
+}
