@@ -1,23 +1,51 @@
-name: Verify static portfolio
+name: Portfolio checks and deployment
 on:
   push:
+    branches: [main]
   pull_request:
+    branches: [main]
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
   build:
+    name: Build and test
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version: '22'
-      - run: node scripts/build.mjs
-      - run: node --test tests/*.test.mjs
-      - uses: actions/upload-artifact@v4
+          package-manager-cache: false
+      - name: Build static pages
+        run: node scripts/build.mjs
+      - name: Check routes and interactions
+        run: node --test tests/*.test.mjs
+      - name: Package website for Pages
+        if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+        uses: actions/upload-pages-artifact@v4
         with:
-          name: github-pages-ready
           path: dist
-          include-hidden-files: true
-# Build-only by design. No deployment job or write permissions.
+
+  deploy:
+    name: Publish GitHub Pages
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: github-pages
+      cancel-in-progress: false
+    steps:
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Deploy verified website
+        id: deployment
+        uses: actions/deploy-pages@v4

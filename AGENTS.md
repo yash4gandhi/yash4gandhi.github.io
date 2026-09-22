@@ -17,7 +17,7 @@
 - Build with `node scripts/build.mjs`; run `node --test tests/*.test.mjs`.
   Check desktop/mobile and relevant keyboard/demo behavior for UI changes.
 - Work on a feature branch and prepare a pull request for review. Do not
-  merge, push or deploy unless authorized. The current workflow is build-only;
-  migration is not yet ready to merge. See README.md.
-- The historical root index.html is not the new site's source. The builder
-  produces the new homepage and all routes under dist/.
+  merge, push or deploy unless authorized. Merging into main automatically
+  deploys after the build and tests pass. PR checks do not deploy.
+- The builder produces the homepage and all routes under dist/. Only dist/
+  is deployed. The legacy stock page and its redirect are intentionally removed.

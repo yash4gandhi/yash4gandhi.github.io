@@ -35,20 +35,27 @@ results. The tourist photo is credited on its project page, and font licenses
 are included with the fonts. No private manuscripts or source archives are
 required to build the site.
 
-## Publishing status
+## Publishing
 
-This branch prepares the new portfolio for review. The existing root
-`index.html` is the previous website and is temporarily preserved during
-migration; the new homepage is generated as `dist/index.html`.
+In the repository's Settings → Pages, select GitHub Actions as the source.
+The `Portfolio checks and deployment` workflow builds and tests pull requests
+targeting `main`. Pull requests do not deploy or receive hosted previews.
 
-The current GitHub Actions workflow builds, tests and saves an artifact only.
-It does not deploy. GitHub Pages deployment from `dist/`, removal of the legacy
-root page, and compatibility for the old stock-page URL remain migration steps
-before the redesign is merged. Analytics is not installed yet.
+After a merge into `main`, the workflow builds and tests again, packages only
+`dist/`, and publishes it through the `github-pages` environment. A failed
+build or test prevents deployment. The workflow also supports a manual rerun
+on `main`; running it on any other branch only builds and tests.
 
-Future updates should use a feature branch and a pull request into `main`.
-Once deployment is configured, merging a passing PR will publish the update.
-Do not merge this migration branch until that configuration has been reviewed.
+The homepage is generated as `dist/index.html`; there is no handwritten root
+homepage. The legacy stock page is removed; the current stock project lives
+at `/work/stock-research/`. Private materials and repository source are never
+included in the Pages artifact.
+
+For future updates, create a feature branch, edit and test, commit and push,
+then open a pull request into `main`. Review its `Build and test` check before
+merging. Merging publishes the update automatically. Repository branch rules
+can require this check before merging; those rules are configured separately
+in GitHub settings. Analytics is not installed yet.
 
 ## Demonstration limitations
 
