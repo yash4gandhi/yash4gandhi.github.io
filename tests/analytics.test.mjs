@@ -90,8 +90,8 @@ test('Blocked storage and a failed Google script do not break preferences or the
   h.settings.emit('click');h.close.emit('click');assert.equal(h.panel.hidden,true);assert.equal(h.doc.activeElement,h.settings);
 });
 
-test('Every built page exposes preferences and privacy without an eager Google tag',()=>{
+test('Content pages expose consent; the legacy redirect sends no analytics',()=>{
   const walk=dir=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(dir+'/'+e.name):[dir+'/'+e.name]);
-  for(const file of walk('dist').filter(f=>f.endsWith('.html'))){const html=fs.readFileSync(file,'utf8');assert.ok(html.includes('src="/analytics.js"'));assert.ok(html.includes('data-analytics-page='));assert.ok(html.includes('href="/privacy/"'));assert.ok(html.includes('data-analytics-panel hidden'));assert.ok(!html.includes('src="https://www.googletagmanager.com'))}
+  for(const file of walk('dist').filter(f=>f.endsWith('.html'))){const html=fs.readFileSync(file,'utf8');if(file==='dist/about/index.html'){assert.ok(html.includes("location.replace('/experience/' + location.search + location.hash)"));assert.ok(!html.includes('/analytics.js'));continue;}assert.ok(html.includes('src="/analytics.js"'));assert.ok(html.includes('data-analytics-page='));assert.ok(html.includes('href="/privacy/"'));assert.ok(html.includes('data-analytics-panel hidden'));assert.ok(!html.includes('src="https://www.googletagmanager.com'))}
   assert.ok(fs.existsSync('dist/privacy/index.html'));
 });
